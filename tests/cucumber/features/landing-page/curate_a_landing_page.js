@@ -12,7 +12,9 @@ module.exports = function () {
   this.Then(/^they see the heading "([^"]*)"$/, function (heading) {
     return this.client.
       waitForExist('h1').
-      getText('h1').
+      call(function(){
+        return this.getText()
+      }).
       should.become(heading);
   });
 
