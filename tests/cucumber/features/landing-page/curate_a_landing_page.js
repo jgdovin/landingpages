@@ -13,8 +13,8 @@ module.exports = function () {
     return this.client.
       waitForExist('h1').
       call(function(){
-        return this.getText()
-      }).
+        return this.getText('h1')
+      })
       should.become(heading);
   });
 
